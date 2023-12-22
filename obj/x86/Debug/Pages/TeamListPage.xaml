@@ -1,0 +1,145 @@
+﻿<Page
+    x:Class="CP4.Pages.TeamListPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:CP4.Pages"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+
+    <Page.Resources>
+
+
+
+        <Style x:Key="CustomEditButtonStyle" TargetType="Button">
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="BorderBrush" Value="White" />
+            <Setter Property="BorderThickness" Value="2" />
+            <Setter Property="CornerRadius" Value="10" />
+            <Setter Property="FontSize" Value="20" />
+            <Setter Property="FontWeight" Value="Light" />
+            <Setter Property="Padding" Value="10,5" />
+            <Setter Property="Width" Value="130" />
+            <!-- Adjust the width as needed -->
+            <Setter Property="Height" Value="50" />
+            <!-- Adjust the height as needed -->
+        </Style>
+
+        <Style x:Key="CustomDeleteButtonStyle" TargetType="Button">
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="BorderBrush" Value="White" />
+            <Setter Property="BorderThickness" Value="2" />
+            <Setter Property="CornerRadius" Value="10" />
+            <Setter Property="FontSize" Value="20" />
+            <Setter Property="FontWeight" Value="Light" />
+            <Setter Property="Padding" Value="10,5" />
+            <Setter Property="Width" Value="130" />
+            <!-- Adjust the width as needed -->
+            <Setter Property="Height" Value="50" />
+            <!-- Adjust the height as needed -->
+        </Style>
+
+
+        <Style x:Key="CustomTransparentButtonStyle" TargetType="Button">
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="BorderBrush" Value="Transparent" />
+            <Setter Property="FontSize" Value="20" />
+            <Setter Property="FontWeight" Value="Light" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Grid Background="Transparent">
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="CommonStates">
+                                    <VisualState x:Name="Normal" />
+                                    <VisualState x:Name="PointerOver">
+                                        <Storyboard>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ContentPresenter" Storyboard.TargetProperty="Foreground">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource ButtonPointerOverForegroundThemeBrush}" />
+                                            </ObjectAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="Pressed">
+                                        <Storyboard>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ContentPresenter" Storyboard.TargetProperty="Foreground">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource ButtonPressedForegroundThemeBrush}" />
+                                            </ObjectAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="Disabled">
+                                        <Storyboard>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ContentPresenter" Storyboard.TargetProperty="Foreground">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource ButtonDisabledForegroundThemeBrush}" />
+                                            </ObjectAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualState>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                            <ContentPresenter x:Name="ContentPresenter"
+                         Content="{TemplateBinding Content}"
+                         ContentTransitions="{TemplateBinding ContentTransitions}"
+                         ContentTemplate="{TemplateBinding ContentTemplate}"
+                         Margin="{TemplateBinding Padding}"
+                         HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                         VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+    </Page.Resources>
+
+    <Grid>
+        <!-- Background gradient for the entire page -->
+        <Grid.Background>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                <!-- Define gradient stops with the specified colors -->
+                <GradientStop Color="#417CDB" Offset="0" />
+                <GradientStop Color="#2657A7" Offset="0.5" />
+                <GradientStop Color="#253E97" Offset="1" />
+            </LinearGradientBrush>
+        </Grid.Background>
+
+        <ScrollViewer>
+            <!-- Use a Grid to organize content -->
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <!-- Title Row -->
+                    <RowDefinition Height="*" />
+                    <!-- Content Row -->
+                    <RowDefinition Height="Auto" />
+                    <!-- Back Button Row -->
+                </Grid.RowDefinitions>
+
+                <Viewbox Grid.Row="0" VerticalAlignment="Top" HorizontalAlignment="Center">
+                    <!-- Adjust the properties of TextBlock within the Viewbox -->
+                    <TextBlock x:ConnectionId='12' x:Name="PageTitle" Text="Edit Teams" FontSize="40" FontWeight="SemiLight" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="300,0,300,0"/>
+                </Viewbox>
+
+                <!-- Content Area -->
+                <Viewbox Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Center">
+                    <!-- Content goes here -->
+                    <StackPanel x:ConnectionId='11' x:Name="TeamListStackPanel" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="50,0,50,0">
+
+                    </StackPanel>
+                </Viewbox>
+
+                <!-- Back Button -->
+                <Button x:ConnectionId='10' Grid.Row="2" Margin="0,10" Style="{StaticResource CustomTransparentButtonStyle}" VerticalAlignment="Bottom" HorizontalAlignment="Center" Width="100" Height="40"                         >
+                    <Button.Content>
+                        <TextBlock Text="BACK" FontSize="20" CharacterSpacing="300"/>
+                    </Button.Content>
+                </Button>
+            </Grid>
+
+        </ScrollViewer>
+        
+    </Grid>
+</Page>
+

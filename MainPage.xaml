@@ -1,0 +1,345 @@
+﻿<Page
+    x:Class="CP4.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:CP4"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
+    xmlns:lottie="using:Microsoft.Toolkit.Uwp.UI.Lottie"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Page.Resources>
+
+        <Style x:Key="CustomTransparentToggleButtonStyle" TargetType="ToggleButton">
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="BorderBrush" Value="Transparent" />
+            <Setter Property="FontSize" Value="20" />
+            <Setter Property="FontWeight" Value="Light" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ToggleButton">
+                        <Grid Background="Transparent">
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="CommonStates">
+                                    <VisualState x:Name="Normal" />
+                                    <VisualState x:Name="PointerOver">
+                                        <Storyboard>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ContentPresenter" Storyboard.TargetProperty="Foreground">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource ButtonPointerOverForegroundThemeBrush}" />
+                                            </ObjectAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="Pressed">
+                                        <Storyboard>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ContentPresenter" Storyboard.TargetProperty="Foreground">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource ButtonPressedForegroundThemeBrush}" />
+                                            </ObjectAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="Disabled">
+                                        <Storyboard>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ContentPresenter" Storyboard.TargetProperty="Foreground">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource ButtonDisabledForegroundThemeBrush}" />
+                                            </ObjectAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualState>
+                                </VisualStateGroup>
+                                <VisualStateGroup x:Name="CheckStates">
+                                    <VisualState x:Name="Checked">
+                                        <Storyboard>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ContentPresenter" Storyboard.TargetProperty="Foreground">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="Black" />
+                                            </ObjectAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="Unchecked" />
+                                    <VisualState x:Name="Indeterminate" />
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                            <ContentPresenter x:Name="ContentPresenter"
+                        Content="{TemplateBinding Content}"
+                        ContentTransitions="{TemplateBinding ContentTransitions}"
+                        ContentTemplate="{TemplateBinding ContentTemplate}"
+                        Margin="{TemplateBinding Padding}"
+                        HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                        VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+
+        <Style x:Key="CustomTransparentButtonStyle" TargetType="Button">
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="BorderBrush" Value="Transparent" />
+            <Setter Property="FontSize" Value="20" />
+            <Setter Property="FontWeight" Value="Light" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Grid Background="Transparent">
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="CommonStates">
+                                    <VisualState x:Name="Normal" />
+                                    <VisualState x:Name="PointerOver">
+                                        <Storyboard>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ContentPresenter" Storyboard.TargetProperty="Foreground">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource ButtonPointerOverForegroundThemeBrush}" />
+                                            </ObjectAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="Pressed">
+                                        <Storyboard>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ContentPresenter" Storyboard.TargetProperty="Foreground">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource ButtonPressedForegroundThemeBrush}" />
+                                            </ObjectAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="Disabled">
+                                        <Storyboard>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ContentPresenter" Storyboard.TargetProperty="Foreground">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource ButtonDisabledForegroundThemeBrush}" />
+                                            </ObjectAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualState>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                            <ContentPresenter x:Name="ContentPresenter"
+                                Content="{TemplateBinding Content}"
+                                ContentTransitions="{TemplateBinding ContentTransitions}"
+                                ContentTemplate="{TemplateBinding ContentTemplate}"
+                                Margin="{TemplateBinding Padding}"
+                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Page.Resources>
+
+    <Grid VerticalAlignment="Stretch">
+        <!-- AnimatedVisualPlayer with AutoPlay -->
+        <muxc:AnimatedVisualPlayer x:Name="LottiePlayer" Margin="-352,-45,0,-95">
+            <!-- LottieVisualSource with JSON UriSource -->
+            <lottie:LottieVisualSource x:Name="LottieJsonSource" UriSource="ms-appx:///Assets/LottiePath1.json"/>
+        </muxc:AnimatedVisualPlayer>
+
+        <!-- Use a Viewbox to wrap both the text and the buttons -->
+        <Viewbox VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <!-- Top row for the text -->
+                    <RowDefinition Height="Auto" />
+                    <!-- Middle row for the "GAMES" button -->
+                    <RowDefinition Height="Auto" />
+                    <!-- Bottom row for the exit button -->
+                </Grid.RowDefinitions>
+
+                <!-- Top grid with the text -->
+                <Grid Grid.Row="0">
+                    <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top" Margin="58,-101,0,0" Foreground="White" Height="102" Width="776" RenderTransformOrigin="0.5,0.5">
+                        <TextBlock.RenderTransform>
+                            <CompositeTransform TranslateY="-70"/>
+                        </TextBlock.RenderTransform>
+                        <Run Text="cp2.0" FontSize="80" CharacterSpacing="20" FontWeight="SemiBold" />
+                        <Run Text=" |  coaching assistant" CharacterSpacing="120" FontSize="15" />
+                    </TextBlock>
+                </Grid>
+
+                <!-- Middle grid with the "GAMES" button -->
+                <Grid Margin="0,-52,0,-58" Grid.RowSpan="3">
+                    <!-- Middle grid with the "GAMES" ToggleButton -->
+                    <ToggleButton
+                        x:Name="GamesButton"
+                        Style="{StaticResource CustomTransparentToggleButtonStyle}"
+                        VerticalAlignment="Bottom"
+                        Width="170"
+                        Height="60"
+                        Click="GamesButton_Click" Margin="132,0,0,-90">
+                        <ToggleButton.Content>
+                            <TextBlock x:Name="GamesButtonText" Text="GAMES" FontSize="40" CharacterSpacing="100" RenderTransformOrigin="0.5,0.5">
+                                <TextBlock.RenderTransform>
+                                    <CompositeTransform TranslateY="-120"/>
+                                </TextBlock.RenderTransform>
+                            </TextBlock>
+                        </ToggleButton.Content>
+                    </ToggleButton>
+
+                    <!-- NEW GAME button (initially hidden) -->
+                    <Button
+                         x:Name="NewGameButton"
+                         Style="{StaticResource CustomTransparentButtonStyle}"
+                         VerticalAlignment="Bottom"
+                         Width="170"
+                         Height="60"
+                         Click="NewGameButton_Click" Margin="132,0,0,-90"
+                         Visibility="Collapsed" Opacity="0" RenderTransformOrigin="0.5,0.5">
+
+                        <Button.RenderTransform>
+                            <CompositeTransform TranslateX="217" TranslateY="-35" />
+                        </Button.RenderTransform>
+                        <!-- NEW GAME button content -->
+                        <Button.Content>
+                            <TextBlock x:Name="NewGameButtonText" Text="NEW GAME" FontSize="20" CharacterSpacing="100" RenderTransformOrigin="0.5,0.5">
+                                <TextBlock.RenderTransform>
+                                    <CompositeTransform TranslateY="-120"/>
+                                </TextBlock.RenderTransform>
+                            </TextBlock>
+                        </Button.Content>
+                    </Button>
+
+                    <!-- GAME SHEET button (initially hidden) -->
+                    <Button
+      x:Name="GameSheetButton"
+      Style="{StaticResource CustomTransparentButtonStyle}"
+      VerticalAlignment="Bottom"
+      Width="170"
+      Height="60"
+      Click="GameSheetButton_Click" Margin="132,0,0,-90"
+      Visibility="Collapsed" Opacity="0" RenderTransformOrigin="0.5,0.5">
+                        <Button.RenderTransform>
+                            <CompositeTransform TranslateX="225"/>
+                        </Button.RenderTransform>
+                        <!-- GAME SHEET button content -->
+                        <Button.Content>
+                            <TextBlock x:Name="GameSheetButtonText" Text="GAME SHEET" FontSize="20" CharacterSpacing="100" RenderTransformOrigin="0.5,0.5">
+                                <TextBlock.RenderTransform>
+                                    <CompositeTransform TranslateY="-120"/>
+                                </TextBlock.RenderTransform>
+                            </TextBlock>
+                        </Button.Content>
+                    </Button>
+
+                    <!-- GAME HISTORY button (initially hidden) -->
+                    <Button
+x:Name="GameHistoryButton"
+Style="{StaticResource CustomTransparentButtonStyle}"
+VerticalAlignment="Bottom"
+Width="170"
+Height="60"
+Click="GameHistoryButton_Click" Margin="132,0,0,-90"
+Visibility="Collapsed"  Opacity="0" RenderTransformOrigin="0.5,0.5">
+                        <Button.RenderTransform>
+                            <CompositeTransform TranslateX="237" TranslateY="35"/>
+                        </Button.RenderTransform>
+                        <!-- GAME HISTORY button content -->
+                        <Button.Content>
+                            <TextBlock x:Name="GameHistoryButtonText" Text="GAME HISTORY" FontSize="20" CharacterSpacing="100" RenderTransformOrigin="0.5,0.5">
+                                <TextBlock.RenderTransform>
+                                    <CompositeTransform TranslateY="-120"/>
+                                </TextBlock.RenderTransform>
+                            </TextBlock>
+                        </Button.Content>
+                    </Button>
+
+
+                </Grid>
+
+
+
+                <!-- Middle grid with the "TEAMS" button -->
+                <Grid Margin="0,-52,0,-58" Grid.RowSpan="3">
+                    <ToggleButton
+    x:Name="TeamsButton"
+    Style="{StaticResource CustomTransparentToggleButtonStyle}"
+    VerticalAlignment="Bottom"
+    Width="170"
+    Height="60"
+    Click="TeamsButton_Click" Margin="132,0,0,-90">
+                        <ToggleButton.Content>
+                            <TextBlock x:Name="TeamsButtonText" Text="TEAMS" FontSize="40" CharacterSpacing="100" RenderTransformOrigin="0.5,0.5">
+                                <TextBlock.RenderTransform>
+                                    <CompositeTransform TranslateY="-30"/>
+                                </TextBlock.RenderTransform>
+                            </TextBlock>
+                        </ToggleButton.Content>
+                    </ToggleButton>
+
+                    <!-- ADD TEAM button (initially hidden) -->
+                    <Button
+                         x:Name="AddTeamButton"
+                         Style="{StaticResource CustomTransparentButtonStyle}"
+                         VerticalAlignment="Bottom"
+                         Width="170"
+                         Height="60"
+                         Click="AddTeamButton_Click" Margin="132,0,0,-90"
+                         Visibility="Collapsed" Opacity="0" RenderTransformOrigin="0.5,0.5">
+                        <Button.RenderTransform>
+                            <CompositeTransform TranslateX="216" TranslateY="-18" />
+                        </Button.RenderTransform>
+                        <!-- ADD TEAM button content -->
+                        <Button.Content>
+                            <TextBlock x:Name="AddTeamButtonText" Text="ADD TEAM" FontSize="20" CharacterSpacing="100" RenderTransformOrigin="0.5,0.5">
+                                <TextBlock.RenderTransform>
+                                    <CompositeTransform TranslateY="-30"/>
+                                </TextBlock.RenderTransform>
+                            </TextBlock>
+                        </Button.Content>
+                    </Button>
+
+                    <!-- EDIT TEAM button (initially hidden) -->
+                    <Button
+                         x:Name="EditTeamButton"
+                         Style="{StaticResource CustomTransparentButtonStyle}"
+                         VerticalAlignment="Bottom"
+                         Width="170"
+                         Height="60"
+                         Click="EditTeamButton_Click" Margin="132,0,0,-90"
+                         Visibility="Collapsed" Opacity="0" RenderTransformOrigin="0.5,0.5">
+                        <Button.RenderTransform>
+                            <CompositeTransform TranslateX="222" TranslateY="18" />
+                        </Button.RenderTransform>
+                        <!-- EDIT TEAM button content -->
+                        <Button.Content>
+                            <TextBlock x:Name="EditTeamButtonText" Text="EDIT TEAMS" FontSize="20" CharacterSpacing="100" RenderTransformOrigin="0.5,0.5">
+                                <TextBlock.RenderTransform>
+                                    <CompositeTransform TranslateY="-30"/>
+                                </TextBlock.RenderTransform>
+                            </TextBlock>
+                        </Button.Content>
+                    </Button>
+                </Grid>
+
+
+
+
+                <!-- Bottom grid with the exit button -->
+                <Grid Grid.Row="2" Margin="0,234,0,-271">
+                    <Button
+                        Style="{StaticResource CustomTransparentButtonStyle}"
+                        VerticalAlignment="Bottom"
+                        HorizontalAlignment="Center"
+                        Width="50"
+                        Height="30"
+                        Click="ExitButton_Click">
+                        <Button.Content>
+                            <TextBlock Text="EXIT" FontSize="12
+                                       " CharacterSpacing="300"/>
+                        </Button.Content>
+                    </Button>
+                </Grid>
+            </Grid>
+        </Viewbox>
+
+        <!-- Grid for the pop-up content -->
+        <Grid x:Name="PopUpGrid" HorizontalAlignment="Right" VerticalAlignment="Center" Visibility="Collapsed">
+            <!-- Add your pop-up content here -->
+        </Grid>
+
+        <Grid.Background>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                <!-- Define gradient stops with the specified colors -->
+                <GradientStop Color="#417CDB" Offset="0" />
+                <GradientStop Color="#2657A7" Offset="0.5" />
+                <GradientStop Color="#253E97" Offset="1" />
+            </LinearGradientBrush>
+        </Grid.Background>
+    </Grid>
+</Page>

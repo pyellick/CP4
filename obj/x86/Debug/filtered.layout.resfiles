@@ -1,0 +1,35 @@
+WinMetadata\Windows.winmd
+Assets\LockScreenLogo.scale-200.png
+Assets\LottiePath1.json
+Assets\SplashScreen.scale-200.png
+Assets\Square150x150Logo.scale-200.png
+Assets\Square44x44Logo.scale-200.png
+Assets\Square44x44Logo.targetsize-24_altform-unplated.png
+Assets\StoreLogo.png
+Assets\TeamLogos\AppleValleyLogoV2.png
+Assets\TeamLogos\Benilde-St.MargaretLogoV2.png
+Assets\TeamLogos\BlakeLogoV2.png
+Assets\TeamLogos\Cathedral Logo V2.png
+Assets\TeamLogos\CretinDerhamHallLogoV2.png
+Assets\TeamLogos\CrushLogoV2.png
+Assets\TeamLogos\EaganLogoV2.png
+Assets\TeamLogos\EdinaLogoV2.png
+Assets\TeamLogos\GreatRiverStateLogoV2.png
+Assets\TeamLogos\HopkinsLogoV2.png
+Assets\TeamLogos\MillerLogoV2.png
+Assets\TeamLogos\MoundsViewLogoV2.png
+Assets\TeamLogos\OpenWorldLearningLogoV2.png
+Assets\TeamLogos\Other Team Logo.png
+Assets\TeamLogos\SouthLogoV2.png
+Assets\TeamLogos\St. Paul Central.png
+Assets\TeamLogos\WhiteBearLakeLogoV2.png
+Assets\Wide310x150Logo.scale-200.png
+App.xbf
+CP4.xr.xml
+Dialogs\AddTeamDialog.xbf
+Dialogs\NewPlayerDialog.xbf
+MainPage.xbf
+Pages\EditTeamPage.xbf
+Pages\NewGamePage.xbf
+Pages\TeamListPage.xbf
+Properties\Default.rd.xml

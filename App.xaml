@@ -1,0 +1,117 @@
+﻿<Application
+    x:Class="CP4.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:CP4">
+
+    <Application.Resources>
+
+
+        <ResourceDictionary>
+
+            <Style x:Key="CustomEditButtonStyle" TargetType="Button">
+                <Setter Property="Foreground" Value="White" />
+                <Setter Property="Background" Value="Transparent" />
+                <Setter Property="BorderBrush" Value="White" />
+                <Setter Property="BorderThickness" Value="2" />
+                <Setter Property="CornerRadius" Value="10" />
+                <Setter Property="FontSize" Value="20" />
+                <Setter Property="FontWeight" Value="Light" />
+                <Setter Property="Padding" Value="10,5" />
+                <Setter Property="Width" Value="130" />
+                <!-- Adjust the width as needed -->
+                <Setter Property="Height" Value="50" />
+                <!-- Adjust the height as needed -->
+            </Style>
+
+            <Style x:Key="CustomDeleteButtonStyle" TargetType="Button">
+                <Setter Property="Foreground" Value="White" />
+                <Setter Property="Background" Value="Transparent" />
+                <Setter Property="BorderBrush" Value="White" />
+                <Setter Property="BorderThickness" Value="2" />
+                <Setter Property="CornerRadius" Value="10" />
+                <Setter Property="FontSize" Value="20" />
+                <Setter Property="FontWeight" Value="Light" />
+                <Setter Property="Padding" Value="10,5" />
+                <Setter Property="Width" Value="130" />
+                <!-- Adjust the width as needed -->
+                <Setter Property="Height" Value="50" />
+                <!-- Adjust the height as needed -->
+            </Style>
+
+            <Style x:Key="CustomTextBoxStyle" TargetType="TextBox">
+                <Setter Property="Foreground" Value="White"/>
+                <Setter Property="Background" Value="Transparent"/>
+                <Setter Property="BorderBrush" Value="White"/>
+                <Setter Property="BorderThickness" Value="2"/>
+                <Setter Property="CornerRadius" Value="5"/>
+                <Setter Property="Padding" Value="8,6"/>
+                <Setter Property="MinHeight" Value="32"/>
+                <Setter Property="SelectionHighlightColor" Value="{ThemeResource SystemControlHighlightAccentBrush}"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="TextBox">
+                            <Grid>
+                                <Border
+                 BorderBrush="{TemplateBinding BorderBrush}"
+                 BorderThickness="{TemplateBinding BorderThickness}"
+                 Background="{TemplateBinding Background}"
+                 CornerRadius="{TemplateBinding CornerRadius}"/>
+                                <ScrollViewer
+                 x:Name="ContentElement"
+                 BorderBrush="Transparent"
+                 BorderThickness="0"
+                 Background="Transparent"
+                 Foreground="{TemplateBinding Foreground}"
+                 Padding="{TemplateBinding Padding}"
+                 IsTabStop="False"
+                 VerticalAlignment="Center"
+                 AutomationProperties.AccessibilityView="Raw"
+                 HorizontalScrollMode="{TemplateBinding ScrollViewer.HorizontalScrollMode}"
+                 HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}"
+                 IsHorizontalRailEnabled="{TemplateBinding ScrollViewer.IsHorizontalRailEnabled}"
+                 IsVerticalRailEnabled="{TemplateBinding ScrollViewer.IsVerticalRailEnabled}"
+                 IsDeferredScrollingEnabled="{TemplateBinding ScrollViewer.IsDeferredScrollingEnabled}"
+                 VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}"
+                 VerticalScrollMode="{TemplateBinding ScrollViewer.VerticalScrollMode}"
+                 ZoomMode="Disabled"/>
+                            </Grid>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+
+            <Style x:Key="CustomDialogButtonStyle" TargetType="Button">
+                <Setter Property="Background" Value="Transparent"/>
+                <Setter Property="BorderBrush" Value="White"/>
+                <Setter Property="BorderThickness" Value="2"/>
+                <Setter Property="Foreground" Value="White"/>
+                <Setter Property="Padding" Value="12,6"/>
+                <Setter Property="MinHeight" Value="32"/>
+                <Setter Property="Margin" Value="5"/>
+                <!-- Adjust the margin as needed -->
+
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Border Background="{TemplateBinding Background}"
+                BorderBrush="{TemplateBinding BorderBrush}"
+                BorderThickness="{TemplateBinding BorderThickness}"
+                CornerRadius="5">
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+        </ResourceDictionary>
+        
+        
+        
+    </Application.Resources>
+    
+    
+    
+</Application>
