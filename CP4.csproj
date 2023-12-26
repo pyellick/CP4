@@ -126,14 +126,14 @@
     <Compile Include="Dialogs\AddTeamDialog.xaml.cs">
       <DependentUpon>AddTeamDialog.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Dialogs\NewPlayerDialog.xaml.cs">
-      <DependentUpon>NewPlayerDialog.xaml</DependentUpon>
-    </Compile>
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\EditTeamPage.xaml.cs">
       <DependentUpon>EditTeamPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\GameHistoryPage.xaml.cs">
+      <DependentUpon>GameHistoryPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\NewGamePage.xaml.cs">
       <DependentUpon>NewGamePage.xaml</DependentUpon>
@@ -184,10 +184,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Dialogs\NewPlayerDialog.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -195,6 +191,10 @@
     <Page Include="Pages\EditTeamPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\GameHistoryPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\NewGamePage.xaml">
       <SubType>Designer</SubType>

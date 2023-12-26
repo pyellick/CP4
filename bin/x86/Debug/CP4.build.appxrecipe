@@ -172,14 +172,14 @@
     <AppxPackagedFile Include="C:\Users\Parker\source\repos\CP4\bin\x86\Debug\Dialogs\AddTeamDialog.xbf">
       <PackagePath>Dialogs\AddTeamDialog.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Parker\source\repos\CP4\bin\x86\Debug\Dialogs\NewPlayerDialog.xbf">
-      <PackagePath>Dialogs\NewPlayerDialog.xbf</PackagePath>
-    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Parker\source\repos\CP4\bin\x86\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Parker\source\repos\CP4\bin\x86\Debug\Pages\EditTeamPage.xbf">
       <PackagePath>Pages\EditTeamPage.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Parker\source\repos\CP4\bin\x86\Debug\Pages\GameHistoryPage.xbf">
+      <PackagePath>Pages\GameHistoryPage.xbf</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Parker\source\repos\CP4\bin\x86\Debug\Pages\NewGamePage.xbf">
       <PackagePath>Pages\NewGamePage.xbf</PackagePath>

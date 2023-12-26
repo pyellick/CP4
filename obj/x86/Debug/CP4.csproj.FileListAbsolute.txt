@@ -93,8 +93,8 @@ C:\Users\Parker\source\repos\CP4\obj\x86\Debug\Pages\NewGamePage.g.cs
 C:\Users\Parker\source\repos\CP4\obj\x86\Debug\Pages\NewGamePage.xaml
 C:\Users\Parker\source\repos\CP4\obj\x86\Debug\Pages\NewGamePage.xbf
 C:\Users\Parker\source\repos\CP4\bin\x86\Debug\Pages\NewGamePage.xbf
-C:\Users\Parker\source\repos\CP4\bin\x86\Debug\Dialogs\NewPlayerDialog.xbf
-C:\Users\Parker\source\repos\CP4\obj\x86\Debug\Dialogs\NewPlayerDialog.g.i.cs
-C:\Users\Parker\source\repos\CP4\obj\x86\Debug\Dialogs\NewPlayerDialog.g.cs
-C:\Users\Parker\source\repos\CP4\obj\x86\Debug\Dialogs\NewPlayerDialog.xaml
-C:\Users\Parker\source\repos\CP4\obj\x86\Debug\Dialogs\NewPlayerDialog.xbf
+C:\Users\Parker\source\repos\CP4\bin\x86\Debug\Pages\GameHistoryPage.xbf
+C:\Users\Parker\source\repos\CP4\obj\x86\Debug\Pages\GameHistoryPage.g.i.cs
+C:\Users\Parker\source\repos\CP4\obj\x86\Debug\Pages\GameHistoryPage.g.cs
+C:\Users\Parker\source\repos\CP4\obj\x86\Debug\Pages\GameHistoryPage.xaml
+C:\Users\Parker\source\repos\CP4\obj\x86\Debug\Pages\GameHistoryPage.xbf

@@ -58,7 +58,7 @@ namespace CP4.Pages
 
         private void NewPlayerButton_Click(object sender, RoutedEventArgs e)
         {
-
+            Frame.GoBack();
         }
     }
 }
