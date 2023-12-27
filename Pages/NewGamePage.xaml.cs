@@ -17,7 +17,7 @@ namespace CP4.Pages
 
         private void LoadPlayers()
         {
-            List<Player> players = PlayerManager.LoadPlayers();
+            List<Player> players = PlayerManager.GetPlayersWithTeamIds();
 
             // Set the list of players as the data source for the ListView
             PlayerListView.ItemsSource = players;

@@ -123,6 +123,9 @@
     <Compile Include="Classes\PlayerManager.cs" />
     <Compile Include="Classes\Team.cs" />
     <Compile Include="Classes\TeamManager.cs" />
+    <Compile Include="Dialogs\AddPlayerContentDialog.xaml.cs">
+      <DependentUpon>AddPlayerContentDialog.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Dialogs\AddTeamDialog.xaml.cs">
       <DependentUpon>AddTeamDialog.xaml</DependentUpon>
     </Compile>
@@ -180,6 +183,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Dialogs\AddPlayerContentDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Dialogs\AddTeamDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

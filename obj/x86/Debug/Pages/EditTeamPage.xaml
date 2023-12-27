@@ -114,19 +114,38 @@
 
         </Viewbox>
 
-        <Viewbox Grid.Row="3" VerticalAlignment="Top" HorizontalAlignment="Center">
-            <!-- Content goes here -->
-            <ListView x:ConnectionId='11' x:Name="PlayerListView" Grid.Row="3" VerticalAlignment="Top" HorizontalAlignment="Center">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="{Binding Name}" />
-                        </StackPanel>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+        <!-- Use a ScrollViewer to enable scrolling -->
+        <ScrollViewer Grid.Row="2" VerticalAlignment="Top" HorizontalAlignment="Center">
+            <StackPanel Margin="0,200,0,0">
+                <!-- Content goes here -->
+                <ListView x:ConnectionId='11' x:Name="PlayerListView" Margin="0,0,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" Width="1500">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <!-- Adjust the Width and Height of the StackPanel as needed -->
+                            <StackPanel Orientation="Horizontal" Width="1400" Height="100">
+                                <!-- Use a Viewbox to scale the TextBlock -->
+                                <Viewbox VerticalAlignment="Center">
+                                    <TextBlock Text="{Binding Name}" FontSize="15" FontWeight="SemiLight" FontStyle="Normal" Foreground="White" Margin="10,0"
+                               TextAlignment="Left" TextWrapping="Wrap" />
+                                </Viewbox>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                    <ListView.ItemContainerStyle>
+                        <Style TargetType="ListViewItem">
+                            <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                            <Setter Property="Margin" Value="10,50,0,0"/>
+                            <Setter Property="Height" Value="Auto"/>
+                            <!-- Allow the items to adjust their height -->
+                            <Setter Property="Width" Value="1350"/>
+                            <!-- Adjust other properties like Height, Width, Padding, etc. as needed -->
+                        </Style>
+                    </ListView.ItemContainerStyle>
+                </ListView>
 
-        </Viewbox>
+            </StackPanel>
+        </ScrollViewer>
+
 
 
 

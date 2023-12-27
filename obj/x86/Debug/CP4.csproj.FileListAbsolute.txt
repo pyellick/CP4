@@ -98,3 +98,8 @@ C:\Users\Parker\source\repos\CP4\obj\x86\Debug\Pages\GameHistoryPage.g.i.cs
 C:\Users\Parker\source\repos\CP4\obj\x86\Debug\Pages\GameHistoryPage.g.cs
 C:\Users\Parker\source\repos\CP4\obj\x86\Debug\Pages\GameHistoryPage.xaml
 C:\Users\Parker\source\repos\CP4\obj\x86\Debug\Pages\GameHistoryPage.xbf
+C:\Users\Parker\source\repos\CP4\obj\x86\Debug\Dialogs\AddPlayerContentDialog.g.i.cs
+C:\Users\Parker\source\repos\CP4\obj\x86\Debug\Dialogs\AddPlayerContentDialog.g.cs
+C:\Users\Parker\source\repos\CP4\obj\x86\Debug\Dialogs\AddPlayerContentDialog.xaml
+C:\Users\Parker\source\repos\CP4\obj\x86\Debug\Dialogs\AddPlayerContentDialog.xbf
+C:\Users\Parker\source\repos\CP4\bin\x86\Debug\Dialogs\AddPlayerContentDialog.xbf

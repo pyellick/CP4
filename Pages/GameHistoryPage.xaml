@@ -10,6 +10,9 @@
 
     <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
         <TextBox x:Name="PlayerNameTextBox" PlaceholderText="Enter Player Name" Width="250" Margin="10"/>
+        <ComboBox x:Name="TeamComboBox" PlaceholderText="Select Team" Width="250" Margin="10" />
+
         <Button Content="Save Player" Click="SavePlayerButton_Click" />
+        
     </StackPanel>
 </Page>

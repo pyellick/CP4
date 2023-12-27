@@ -26,33 +26,60 @@ namespace CP4.Pages
         public GameHistoryPage()
         {
             this.InitializeComponent();
+            LoadTeams();
         }
 
-        private void SavePlayerButton_Click(object sender, RoutedEventArgs e)
+        private void LoadTeams()
+        {
+            // Load a list of teams from your TeamManager class
+            List<Team> teams = TeamManager.LoadTeams();
+
+            // Bind the list of teams to the ComboBox
+            TeamComboBox.ItemsSource = teams;
+            TeamComboBox.DisplayMemberPath = "Name"; // Display the team names in the ComboBox
+        }
+
+
+        private async void SavePlayerButton_Click(object sender, RoutedEventArgs e)
         {
             // Get the player's name from the TextBox
             string playerName = PlayerNameTextBox.Text.Trim();
 
             if (!string.IsNullOrEmpty(playerName))
             {
-                // Create a new Player object
-                Player newPlayer = new Player
+                // Get the selected team from the ComboBox
+                Team selectedTeam = TeamComboBox.SelectedItem as Team;
+
+                if (selectedTeam != null)
                 {
-                    Id = Guid.NewGuid(), // Generate a new GUID for the player
-                    Name = playerName,
-                };
+                    // Create a new Player object
+                    Player newPlayer = new Player
+                    {
+                        Id = Guid.NewGuid(),
+                        Name = playerName,
+                        TeamId = selectedTeam.Id, // Set the TeamId property
+                        TeamName = selectedTeam.Name // Set the TeamName property
+                    };
 
-                // Save the player using PlayerManager
-                PlayerManager.SavePlayer(newPlayer);
 
-                // Navigate back to the previous page or perform any other desired action
-                Frame.GoBack();
+                    // Save the player using PlayerManager
+                    await PlayerManager.SavePlayer(newPlayer);
+
+                    // Navigate back to the previous page or perform any other desired action
+                    Frame.GoBack();
+                }
+                else
+                {
+                    // Show an error message or handle the case where no team is selected
+                }
             }
             else
             {
                 // Show an error message or handle the case where the player's name is empty
             }
         }
+
+
 
     }
 }
