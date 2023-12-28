@@ -133,10 +133,12 @@ namespace CP4
             Application.Current.Exit();
         }
 
-        private void AddTeamButton_Click(object sender, RoutedEventArgs e)
+        private async void AddTeamButton_Click(object sender, RoutedEventArgs e)
         {
-            Application.Current.Exit();
+            var dialog = new AddTeamDialog();
+            await dialog.ShowAsync();
         }
+
 
 
 

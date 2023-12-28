@@ -26,10 +26,10 @@ Assets\TeamLogos\WhiteBearLakeLogoV2.png
 Assets\Wide310x150Logo.scale-200.png
 App.xbf
 CP4.xr.xml
+Dialogs\AddPlayerDialog.xbf
 Dialogs\AddTeamDialog.xbf
 MainPage.xbf
 Pages\EditTeamPage.xbf
-Pages\GameHistoryPage.xbf
 Pages\NewGamePage.xbf
 Pages\TeamListPage.xbf
 Properties\Default.rd.xml

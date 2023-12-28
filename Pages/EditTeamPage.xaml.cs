@@ -83,10 +83,14 @@ namespace CP4.Pages
 
         private async void NewPlayerButton_Click(object sender, RoutedEventArgs e)
         {
-            var gameHistoryDialog = new GameHistoryContentDialog();
-            await gameHistoryDialog.ShowAsync();
+            // Get the current team's ID from navigationParams
+            Guid teamId = navigationParams.TeamId;
 
+            // Create a new instance of GameHistoryContentDialog with the teamId
+            var addPlayerDialog = new AddPlayerDialog(teamId);
+            await addPlayerDialog.ShowAsync();
         }
+
 
 
 

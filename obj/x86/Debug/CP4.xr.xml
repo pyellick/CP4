@@ -220,7 +220,6 @@
       <RootProperty Name="Margin" />
       <RootProperty Name="Style" />
       <RootProperty Name="ItemTemplate" />
-      <RootProperty Name="PlaceholderText" />
       <RootEvent Name="SelectionChanged" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.Primitives.Popup">
@@ -315,7 +314,7 @@
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.ListViewItem" />
     <RootType FullName="CP4.Pages.EditTeamPage" />
-    <RootType FullName="CP4.Dialogs.GameHistoryContentDialog" />
+    <RootType FullName="CP4.Dialogs.AddPlayerDialog" />
     <RootType FullName="CP4.Pages.NewGamePage" />
     <RootType FullName="CP4.Pages.TeamListPage" />
   </Roots.RootTypes>

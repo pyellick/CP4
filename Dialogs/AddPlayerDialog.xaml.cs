@@ -1,29 +1,21 @@
-﻿// GameHistoryContentDialog.xaml.cs
-using CP4.Classes;
+﻿using CP4.Classes;
 using CP4.Pages;
 using System;
-using System.Collections.Generic;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
 namespace CP4.Dialogs
 {
-    public sealed partial class GameHistoryContentDialog : ContentDialog
+    public sealed partial class AddPlayerDialog : ContentDialog
     {
-        public GameHistoryContentDialog()
+        private Guid currentTeamId; // Add a private field to store the currently open team ID
+
+        public AddPlayerDialog(Guid teamId)
         {
             this.InitializeComponent();
-            LoadTeams();
-        }
 
-        private void LoadTeams()
-        {
-            // Load a list of teams from your TeamManager class
-            List<Team> teams = TeamManager.LoadTeams();
-
-            // Bind the list of teams to the ComboBox
-            TeamComboBox.ItemsSource = teams;
-            TeamComboBox.DisplayMemberPath = "Name"; // Display the team names in the ComboBox
+            // Set the selected team in the ComboBox based on the provided teamId
+            currentTeamId = teamId;
         }
 
         private async void SavePlayerButton_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
@@ -33,18 +25,15 @@ namespace CP4.Dialogs
 
             if (!string.IsNullOrEmpty(playerName))
             {
-                // Get the selected team from the ComboBox
-                Team selectedTeam = TeamComboBox.SelectedItem as Team;
-
-                if (selectedTeam != null)
+                // Check if a valid team ID is available
+                if (currentTeamId != Guid.Empty)
                 {
                     // Create a new Player object
                     Player newPlayer = new Player
                     {
                         Id = Guid.NewGuid(),
                         Name = playerName,
-                        TeamId = selectedTeam.Id, // Set the TeamId property
-                        TeamName = selectedTeam.Name // Set the TeamName property
+                        TeamId = currentTeamId, // Assign the current team ID
                     };
 
                     // Save the player using PlayerManager
@@ -58,7 +47,7 @@ namespace CP4.Dialogs
                 }
                 else
                 {
-                    // Show an error message or handle the case where no team is selected
+                    // Show an error message or handle the case where the team ID is invalid
                 }
             }
             else
@@ -66,7 +55,6 @@ namespace CP4.Dialogs
                 // Show an error message or handle the case where the player's name is empty
             }
         }
-
 
         private void CancelButton_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
