@@ -30,13 +30,13 @@
     <AppXManifest Include="C:\Users\Parker\source\repos\CP4\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2023-12-27T22:40:37.955</Modified>
+      <Modified>2023-12-28T02:56:20.350</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\Parker\source\repos\CP4\bin\x86\Debug\CP4.exe">
       <PackagePath>entrypoint\CP4.exe</PackagePath>
-      <Modified>2023-12-27T22:40:36.138</Modified>
+      <Modified>2023-12-27T23:02:33.789</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Parker\.nuget\packages\microsoft.web.webview2\1.0.1264.42\build\..\runtimes\win-x86\native_uap\Microsoft.Web.WebView2.Core.dll">
       <PackagePath>Microsoft.Web.WebView2.Core.dll</PackagePath>
@@ -218,39 +218,35 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Parker\source\repos\CP4\bin\x86\Debug\CP4.xr.xml">
       <PackagePath>CP4.xr.xml</PackagePath>
-      <Modified>2023-12-27T22:31:14.309</Modified>
+      <Modified>2023-12-27T22:59:01.633</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Parker\source\repos\CP4\bin\x86\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
-      <Modified>2023-12-27T22:40:35.870</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Parker\source\repos\CP4\bin\x86\Debug\Dialogs\AddPlayerContentDialog.xbf">
-      <PackagePath>Dialogs\AddPlayerContentDialog.xbf</PackagePath>
-      <Modified>2023-12-27T22:40:35.892</Modified>
+      <Modified>2023-12-28T02:56:18.759</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Parker\source\repos\CP4\bin\x86\Debug\Dialogs\AddTeamDialog.xbf">
       <PackagePath>Dialogs\AddTeamDialog.xbf</PackagePath>
-      <Modified>2023-12-27T22:40:35.874</Modified>
+      <Modified>2023-12-28T02:56:18.764</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Parker\source\repos\CP4\bin\x86\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
-      <Modified>2023-12-27T22:40:35.878</Modified>
+      <Modified>2023-12-28T02:56:18.774</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Parker\source\repos\CP4\bin\x86\Debug\Pages\EditTeamPage.xbf">
       <PackagePath>Pages\EditTeamPage.xbf</PackagePath>
-      <Modified>2023-12-27T22:40:35.978</Modified>
+      <Modified>2023-12-28T02:56:18.793</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Parker\source\repos\CP4\bin\x86\Debug\Pages\GameHistoryPage.xbf">
       <PackagePath>Pages\GameHistoryPage.xbf</PackagePath>
-      <Modified>2023-12-27T22:40:35.981</Modified>
+      <Modified>2023-12-28T02:56:18.795</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Parker\source\repos\CP4\bin\x86\Debug\Pages\NewGamePage.xbf">
       <PackagePath>Pages\NewGamePage.xbf</PackagePath>
-      <Modified>2023-12-27T22:40:35.986</Modified>
+      <Modified>2023-12-28T02:56:18.797</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Parker\source\repos\CP4\bin\x86\Debug\Pages\TeamListPage.xbf">
       <PackagePath>Pages\TeamListPage.xbf</PackagePath>
-      <Modified>2023-12-27T22:40:35.990</Modified>
+      <Modified>2023-12-28T02:56:18.799</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\Windows Kits\10\ExtensionSDKs\Microsoft.UniversalCRT.Debug\10.0.22621.0\\redist\Debug\x86\ucrtbased.dll">
       <PackagePath>ucrtbased.dll</PackagePath>
@@ -266,11 +262,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Parker\source\repos\CP4\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2023-12-27T21:26:55.071</Modified>
+      <Modified>2023-12-27T22:50:12.005</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Parker\source\repos\CP4\bin\x86\Debug\Core\CP4.exe">
       <PackagePath>CP4.exe</PackagePath>
-      <Modified>2023-12-27T22:40:37.902</Modified>
+      <Modified>2023-12-28T02:56:20.328</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

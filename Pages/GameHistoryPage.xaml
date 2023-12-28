@@ -1,11 +1,7 @@
-﻿<Page
-    x:Class="CP4.Pages.GameHistoryPage"
+﻿<ContentDialog
+    x:Class="CP4.Dialogs.GameHistoryContentDialog"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:CP4.Pages"
-    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
@@ -13,6 +9,6 @@
         <ComboBox x:Name="TeamComboBox" PlaceholderText="Select Team" Width="250" Margin="10" />
 
         <Button Content="Save Player" Click="SavePlayerButton_Click" />
-        
+        <Button Content="Cancel" Click="CancelButton_Click" />
     </StackPanel>
-</Page>
+</ContentDialog>

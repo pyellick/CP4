@@ -169,9 +169,6 @@
     <AppxPackagedFile Include="C:\Users\Parker\source\repos\CP4\bin\x86\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Parker\source\repos\CP4\bin\x86\Debug\Dialogs\AddPlayerContentDialog.xbf">
-      <PackagePath>Dialogs\AddPlayerContentDialog.xbf</PackagePath>
-    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Parker\source\repos\CP4\bin\x86\Debug\Dialogs\AddTeamDialog.xbf">
       <PackagePath>Dialogs\AddTeamDialog.xbf</PackagePath>
     </AppxPackagedFile>

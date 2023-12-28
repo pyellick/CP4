@@ -1,29 +1,16 @@
-﻿using CP4.Classes;
+﻿// GameHistoryContentDialog.xaml.cs
+using CP4.Classes;
+using CP4.Pages;
 using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
 
-// The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
-
-namespace CP4.Pages
+namespace CP4.Dialogs
 {
-    /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
-    /// </summary>
-    public sealed partial class GameHistoryPage : Page
+    public sealed partial class GameHistoryContentDialog : ContentDialog
     {
-        public GameHistoryPage()
+        public GameHistoryContentDialog()
         {
             this.InitializeComponent();
             LoadTeams();
@@ -39,8 +26,7 @@ namespace CP4.Pages
             TeamComboBox.DisplayMemberPath = "Name"; // Display the team names in the ComboBox
         }
 
-
-        private async void SavePlayerButton_Click(object sender, RoutedEventArgs e)
+        private async void SavePlayerButton_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
             // Get the player's name from the TextBox
             string playerName = PlayerNameTextBox.Text.Trim();
@@ -61,12 +47,14 @@ namespace CP4.Pages
                         TeamName = selectedTeam.Name // Set the TeamName property
                     };
 
-
                     // Save the player using PlayerManager
                     await PlayerManager.SavePlayer(newPlayer);
 
-                    // Navigate back to the previous page or perform any other desired action
-                    Frame.GoBack();
+                    // Close the ContentDialog
+                    Hide();
+
+                    // Refresh the player list in the EditTeamPage
+                    ((EditTeamPage)((Frame)Window.Current.Content).Content).RefreshPlayerList();
                 }
                 else
                 {
@@ -80,6 +68,10 @@ namespace CP4.Pages
         }
 
 
-
+        private void CancelButton_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            // Close the ContentDialog without saving
+            Hide();
+        }
     }
 }

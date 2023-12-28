@@ -1,4 +1,5 @@
 ﻿using CP4.Classes;
+using CP4.Dialogs;
 using System;
 using System.Collections.Generic;
 using Windows.UI.Xaml;
@@ -6,7 +7,7 @@ using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using static CP4.Pages.TeamListPage;
-using CP4.Dialogs; // Add this using directive
+
 
 
 namespace CP4.Pages
@@ -74,31 +75,17 @@ namespace CP4.Pages
         }
 
 
+        public void RefreshPlayerList()
+        {
+            LoadPlayersByTeamId(navigationParams.TeamId);
+        }
+
+
         private async void NewPlayerButton_Click(object sender, RoutedEventArgs e)
         {
-            var addPlayerDialog = new AddPlayerContentDialog(navigationParams.TeamId, navigationParams.TeamName);
-            var result = await addPlayerDialog.ShowAsync();
+            var gameHistoryDialog = new GameHistoryContentDialog();
+            await gameHistoryDialog.ShowAsync();
 
-            if (result == ContentDialogResult.Primary)
-            {
-                // Check if PlayerName is not null (user didn't cancel)
-                if (!string.IsNullOrEmpty(addPlayerDialog.PlayerName))
-                {
-                    // Create a new Player object and set its properties
-                    Player newPlayer = new Player
-                    {
-                        Id = Guid.NewGuid(), // Generate a new GUID for the player
-                        Name = addPlayerDialog.PlayerName,
-                        TeamId = addPlayerDialog.TeamId
-                    };
-
-                    // Save the new player
-                    await PlayerManager.SavePlayer(newPlayer);
-
-                    // Reload the player list or update the UI as needed
-                    LoadPlayerList(); // Call the LoadPlayerList method to update the player list
-                }
-            }
         }
 
 

@@ -130,14 +130,14 @@ namespace CP4
 
         private void GameHistoryButton_Click(object sender, RoutedEventArgs e)
         {
-            Frame.Navigate(typeof(GameHistoryPage));
+            Application.Current.Exit();
         }
 
-        private async void AddTeamButton_Click(object sender, RoutedEventArgs e)
+        private void AddTeamButton_Click(object sender, RoutedEventArgs e)
         {
-            var dialog = new AddTeamDialog();
-            await dialog.ShowAsync();
+            Application.Current.Exit();
         }
+
 
 
         private void EditTeamButton_Click(object sender, RoutedEventArgs e)
