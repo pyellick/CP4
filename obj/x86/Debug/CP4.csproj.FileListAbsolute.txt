@@ -98,3 +98,13 @@ C:\Users\Parker\source\repos\CP4\obj\x86\Debug\Dialogs\AddPlayerDialog.g.i.cs
 C:\Users\Parker\source\repos\CP4\obj\x86\Debug\Dialogs\AddPlayerDialog.g.cs
 C:\Users\Parker\source\repos\CP4\obj\x86\Debug\Dialogs\AddPlayerDialog.xaml
 C:\Users\Parker\source\repos\CP4\obj\x86\Debug\Dialogs\AddPlayerDialog.xbf
+C:\Users\Parker\source\repos\CP4\bin\x86\Debug\Dialogs\EditPlayerDialog.xbf
+C:\Users\Parker\source\repos\CP4\obj\x86\Debug\Dialogs\EditPlayerDialog.g.i.cs
+C:\Users\Parker\source\repos\CP4\obj\x86\Debug\Dialogs\EditPlayerDialog.g.cs
+C:\Users\Parker\source\repos\CP4\obj\x86\Debug\Dialogs\EditPlayerDialog.xaml
+C:\Users\Parker\source\repos\CP4\obj\x86\Debug\Dialogs\EditPlayerDialog.xbf
+C:\Users\Parker\source\repos\CP4\bin\x86\Debug\MyToolkit.Extended\MyToolkit.Extended.xr.xml
+C:\Users\Parker\source\repos\CP4\bin\x86\Debug\MyToolkit.dll
+C:\Users\Parker\source\repos\CP4\bin\x86\Debug\MyToolkit.Extended.dll
+C:\Users\Parker\source\repos\CP4\obj\x86\Debug\MyToolkit.Extended.pri.xml
+C:\Users\Parker\source\repos\CP4\obj\x86\Debug\.winmd_cache\$Microsoft.Graphics.Canvas.winmd_638361814300000000.json

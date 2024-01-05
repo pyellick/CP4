@@ -56,9 +56,21 @@
               "target": "Package",
               "version": "[2.8.6, )"
             },
+            "MyToolkit": {
+              "target": "Package",
+              "version": "[2.5.16, )"
+            },
+            "MyToolkit.Extended": {
+              "target": "Package",
+              "version": "[2.5.16, )"
+            },
             "Newtonsoft.Json": {
               "target": "Package",
               "version": "[13.0.3, )"
+            },
+            "Win2D.uwp": {
+              "target": "Package",
+              "version": "[1.27.1, )"
             }
           },
           "imports": [

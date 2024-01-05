@@ -126,6 +126,9 @@
     <Compile Include="Dialogs\AddTeamDialog.xaml.cs">
       <DependentUpon>AddTeamDialog.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Dialogs\EditPlayerDialog.xaml.cs">
+      <DependentUpon>EditPlayerDialog.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -184,6 +187,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Dialogs\EditPlayerDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -218,8 +225,17 @@
     <PackageReference Include="Microsoft.UI.Xaml">
       <Version>2.8.6</Version>
     </PackageReference>
+    <PackageReference Include="MyToolkit">
+      <Version>2.5.16</Version>
+    </PackageReference>
+    <PackageReference Include="MyToolkit.Extended">
+      <Version>2.5.16</Version>
+    </PackageReference>
     <PackageReference Include="Newtonsoft.Json">
       <Version>13.0.3</Version>
+    </PackageReference>
+    <PackageReference Include="Win2D.uwp">
+      <Version>1.27.1</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>

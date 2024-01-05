@@ -91,6 +91,30 @@ namespace CP4.Pages
             await addPlayerDialog.ShowAsync();
         }
 
+        private void EditPlayer_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Exit();
+        }
+
+
+
+        private void DeletePlayer_Click(object sender, RoutedEventArgs e)
+        {
+            Button deleteButton = sender as Button;
+
+            if (deleteButton != null)
+            {
+                // Get the player's ID from the button's Tag property
+                if (deleteButton.Tag is Guid playerId)
+                {
+                    // Delete the player from the database
+                    PlayerManager.DeletePlayer(playerId);
+
+                    // Refresh the player list
+                    LoadPlayerList(); // Use LoadPlayerList here instead of LoadPlayers
+                }
+            }
+        }
 
 
 

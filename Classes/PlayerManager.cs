@@ -110,6 +110,11 @@ namespace CP4.Classes
             ApplicationData.Current.LocalSettings.Values[PlayersKey] = serializedPlayers;
         }
 
+        public static Player GetPlayerById(Guid playerId)
+        {
+            List<Player> players = LoadPlayers();
+            return players.FirstOrDefault(player => player.Id == playerId);
+        }
 
 
 
@@ -138,6 +143,30 @@ namespace CP4.Classes
                 ApplicationData.Current.LocalSettings.Values[PlayersKey] = serializedPlayers;
             }
         }
+
+
+        public static async Task UpdatePlayer(Player updatedPlayer)
+        {
+            // Load existing players from local storage
+            List<Player> players = await LoadPlayersAsync();
+
+            // Find the player with the same ID in the list
+            Player existingPlayer = players.FirstOrDefault(player => player.Id == updatedPlayer.Id);
+
+            if (existingPlayer != null)
+            {
+                // Update the existing player with the new information
+                existingPlayer.Name = updatedPlayer.Name;
+                existingPlayer.JerseyNumber = updatedPlayer.JerseyNumber;
+                existingPlayer.Speed = updatedPlayer.Speed;
+                // Update other attributes and roles as needed
+
+                // Serialize the updated list of players to JSON and save it to local storage
+                string serializedPlayers = JsonConvert.SerializeObject(players);
+                ApplicationData.Current.LocalSettings.Values[PlayersKey] = serializedPlayers;
+            }
+        }
+
 
     }
 }

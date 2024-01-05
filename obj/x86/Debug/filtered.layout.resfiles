@@ -28,6 +28,7 @@ App.xbf
 CP4.xr.xml
 Dialogs\AddPlayerDialog.xbf
 Dialogs\AddTeamDialog.xbf
+Dialogs\EditPlayerDialog.xbf
 MainPage.xbf
 Pages\EditTeamPage.xbf
 Pages\NewGamePage.xbf

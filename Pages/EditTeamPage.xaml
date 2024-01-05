@@ -114,15 +114,38 @@
                 <ListView x:Name="PlayerListView" VerticalAlignment="Top" HorizontalAlignment="Center" Width="900">
                     <ListView.ItemTemplate>
                         <DataTemplate>
-                            <!-- Adjust the Width and Height of the StackPanel as needed -->
-                            <StackPanel Orientation="Horizontal">
-                                <!-- Use a Viewbox to scale the TextBlock -->
-                                <Viewbox VerticalAlignment="Center">
-                                    <!-- Decrease the left margin to move the player name to the left -->
-                                    <TextBlock Text="{Binding Name}" FontSize="45" FontWeight="SemiLight" FontStyle="Normal" Foreground="White"
+                            <Grid>
+                                <!-- Adjust the Width and Height of the StackPanel as needed -->
+                                <StackPanel Orientation="Horizontal">
+                                    <!-- Use a Viewbox to scale the TextBlock -->
+                                    <Viewbox VerticalAlignment="Center">
+                                        <!-- Decrease the left margin to move the player name to the left -->
+                                        <TextBlock Text="{Binding Name}" FontSize="45" FontWeight="SemiLight" FontStyle="Normal" Foreground="White"
                                    TextAlignment="Left" TextWrapping="Wrap" />
-                                </Viewbox>
-                            </StackPanel>
+                                    </Viewbox>
+                                </StackPanel>
+
+                                <!-- Add space between Edit and Delete buttons by adding margin to the Delete button -->
+                                <Button Content="Delete" Style="{StaticResource CustomTransparentButtonStyle}" HorizontalAlignment="Right"
+        VerticalAlignment="Center" Width="70" Height="40" Click="DeletePlayer_Click">
+                                    <!-- Pass the player's ID or any necessary information to identify the player -->
+                                    <Button.Tag>
+                                        <Binding Path="Id"/>
+                                    </Button.Tag>
+                                </Button>
+
+                                <!-- Edit Button -->
+                                <Button Content="Edit" Style="{StaticResource CustomTransparentButtonStyle}" HorizontalAlignment="Right"
+        VerticalAlignment="Center" Width="70" Height="40" Click="EditPlayer_Click"  Margin="100,0">
+                                    <!-- Pass the player's ID or any necessary information to identify the player -->
+                                    <Button.Tag>
+                                        <Binding Path="Id"/>
+                                    </Button.Tag>
+                                </Button>
+
+
+
+                            </Grid>
                         </DataTemplate>
                     </ListView.ItemTemplate>
                     <ListView.ItemContainerStyle>
@@ -136,6 +159,7 @@
                         </Style>
                     </ListView.ItemContainerStyle>
                 </ListView>
+
             </Viewbox>
 
 

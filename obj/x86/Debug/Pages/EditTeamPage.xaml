@@ -93,13 +93,13 @@
 
             <Viewbox Grid.Row="0" VerticalAlignment="Top" HorizontalAlignment="Center">
                 <!-- Header with Team Name -->
-                <TextBlock x:ConnectionId='14' x:Name="TeamNameText" Text="" Foreground="White" FontSize="25" Margin="100,0,100,0" />
+                <TextBlock x:ConnectionId='16' x:Name="TeamNameText" Text="" Foreground="White" FontSize="25" Margin="100,0,100,0" />
             </Viewbox>
 
             <Viewbox Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Center">
                 <StackPanel VerticalAlignment="Top" HorizontalAlignment="Center">
                     <!-- New Player Button goes here -->
-                    <Button x:ConnectionId='13' Style="{StaticResource NewPlayerButtonStyle}" Width="450" Height="45"                               Margin="100,20,100,0">
+                    <Button x:ConnectionId='15' Style="{StaticResource NewPlayerButtonStyle}" Width="450" Height="45"                               Margin="100,20,100,0">
                         <Button.Content>
                             <Grid>
                                 <TextBlock Text="+" FontSize="55" FontWeight="SemiLight" FontStyle="Normal" VerticalAlignment="Center" Margin="-20,-10,0,0"/>
@@ -114,15 +114,38 @@
                 <ListView x:ConnectionId='11' x:Name="PlayerListView" VerticalAlignment="Top" HorizontalAlignment="Center" Width="900">
                     <ListView.ItemTemplate>
                         <DataTemplate>
-                            <!-- Adjust the Width and Height of the StackPanel as needed -->
-                            <StackPanel Orientation="Horizontal">
-                                <!-- Use a Viewbox to scale the TextBlock -->
-                                <Viewbox VerticalAlignment="Center">
-                                    <!-- Decrease the left margin to move the player name to the left -->
-                                    <TextBlock Text="{Binding Name}" FontSize="45" FontWeight="SemiLight" FontStyle="Normal" Foreground="White"
+                            <Grid>
+                                <!-- Adjust the Width and Height of the StackPanel as needed -->
+                                <StackPanel Orientation="Horizontal">
+                                    <!-- Use a Viewbox to scale the TextBlock -->
+                                    <Viewbox VerticalAlignment="Center">
+                                        <!-- Decrease the left margin to move the player name to the left -->
+                                        <TextBlock Text="{Binding Name}" FontSize="45" FontWeight="SemiLight" FontStyle="Normal" Foreground="White"
                                    TextAlignment="Left" TextWrapping="Wrap" />
-                                </Viewbox>
-                            </StackPanel>
+                                    </Viewbox>
+                                </StackPanel>
+
+                                <!-- Add space between Edit and Delete buttons by adding margin to the Delete button -->
+                                <Button x:ConnectionId='13' Content="Delete" Style="{StaticResource CustomTransparentButtonStyle}" HorizontalAlignment="Right"
+        VerticalAlignment="Center" Width="70" Height="40"                           >
+                                    <!-- Pass the player's ID or any necessary information to identify the player -->
+                                    <Button.Tag>
+                                        <Binding Path="Id"/>
+                                    </Button.Tag>
+                                </Button>
+
+                                <!-- Edit Button -->
+                                <Button x:ConnectionId='14' Content="Edit" Style="{StaticResource CustomTransparentButtonStyle}" HorizontalAlignment="Right"
+        VerticalAlignment="Center" Width="70" Height="40"                           Margin="100,0">
+                                    <!-- Pass the player's ID or any necessary information to identify the player -->
+                                    <Button.Tag>
+                                        <Binding Path="Id"/>
+                                    </Button.Tag>
+                                </Button>
+
+
+
+                            </Grid>
                         </DataTemplate>
                     </ListView.ItemTemplate>
                     <ListView.ItemContainerStyle>
@@ -136,6 +159,7 @@
                         </Style>
                     </ListView.ItemContainerStyle>
                 </ListView>
+
             </Viewbox>
 
 
