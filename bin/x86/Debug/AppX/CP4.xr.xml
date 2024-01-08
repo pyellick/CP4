@@ -2,13 +2,11 @@
 <Roots >
   <Roots.PropertyPathNames>
     <RootPropertyPathName Name="Value" />
-    <RootPropertyPathName Name="TeamName" />
-    <RootPropertyPathName Name="LogoImagePath" />
-    <RootPropertyPathName Name="Name" />
-    <RootPropertyPathName Name="Color" />
     <RootPropertyPathName Name="Id" />
+    <RootPropertyPathName Name="Name" />
     <RootPropertyPathName Name="ActualWidth" />
     <RootPropertyPathName Name="ActualHeight" />
+    <RootPropertyPathName Name="TeamName" />
   </Roots.PropertyPathNames>
   <Roots.RootTypes>
     <RootType FullName="Windows.UI.Xaml.Application">
@@ -16,13 +14,13 @@
     </RootType>
     <RootType FullName="Windows.UI.Xaml.ResourceDictionary" />
     <RootType FullName="Windows.UI.Xaml.Controls.Button">
+      <RootProperty Name="Content" />
       <RootProperty Name="Style" />
+      <RootProperty Name="Margin" />
       <RootProperty Name="VerticalAlignment" />
       <RootProperty Name="HorizontalAlignment" />
       <RootProperty Name="Width" />
       <RootProperty Name="Height" />
-      <RootProperty Name="Content" />
-      <RootProperty Name="Margin" />
       <RootProperty Name="Visibility" />
       <RootProperty Name="Opacity" />
       <RootProperty Name="RenderTransformOrigin" />
@@ -59,17 +57,11 @@
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.TextBox">
       <RootProperty Name="SelectionHighlightColor" />
-      <RootProperty Name="Margin" />
-      <RootProperty Name="Style" />
-      <RootProperty Name="Background" />
-      <RootProperty Name="BorderBrush" />
-      <RootProperty Name="BorderThickness" />
-      <RootProperty Name="Foreground" />
-      <RootProperty Name="Padding" />
-      <RootProperty Name="FocusVisualPrimaryBrush" />
       <RootProperty Name="Width" />
       <RootProperty Name="Height" />
       <RootProperty Name="HorizontalAlignment" />
+      <RootProperty Name="Margin" />
+      <RootProperty Name="Style" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.Slider">
       <RootProperty Name="Minimum" />
@@ -81,17 +73,12 @@
       <RootProperty Name="Margin" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.Primitives.ToggleButton">
-      <RootProperty Name="Background" />
-      <RootProperty Name="BorderBrush" />
-      <RootProperty Name="BorderThickness" />
-      <RootProperty Name="Padding" />
-      <RootProperty Name="HorizontalContentAlignment" />
-      <RootProperty Name="Template" />
       <RootProperty Name="Style" />
+      <RootProperty Name="Background" />
+      <RootProperty Name="Margin" />
       <RootProperty Name="VerticalAlignment" />
       <RootProperty Name="Width" />
       <RootProperty Name="Height" />
-      <RootProperty Name="Margin" />
       <RootProperty Name="Content" />
       <RootEvent Name="Click" />
       <RootEvent Name="Checked" />
@@ -161,20 +148,18 @@
       <RootProperty Name="Child" />
       <RootProperty Name="Width" />
       <RootProperty Name="Height" />
-      <RootProperty Name="Margin" />
-      <RootProperty Name="Visibility" />
     </RootType>
     <RootType FullName="Microsoft.Xaml.DirectUI.ProxyTypes.StaticResourceExtension" />
     <RootType FullName="Windows.UI.Xaml.Controls.TextBlock">
       <RootProperty Name="Text" />
+      <RootProperty Name="VerticalAlignment" />
       <RootProperty Name="Foreground" />
-      <RootProperty Name="Margin" />
       <RootProperty Name="FontSize" />
       <RootProperty Name="CharacterSpacing" />
       <RootProperty Name="RenderTransformOrigin" />
       <RootProperty Name="RenderTransform" />
       <RootProperty Name="HorizontalAlignment" />
-      <RootProperty Name="VerticalAlignment" />
+      <RootProperty Name="Margin" />
       <RootProperty Name="Height" />
       <RootProperty Name="Width" />
       <RootProperty Name="Inlines" />
@@ -238,8 +223,6 @@
       <RootProperty Name="VerticalAlignment" />
       <RootProperty Name="Margin" />
       <RootProperty Name="Opacity" />
-      <RootProperty Name="Stroke" />
-      <RootProperty Name="StrokeThickness" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.Primitives.TickBar">
       <RootProperty Name="Fill" />
@@ -273,9 +256,6 @@
       <RootProperty Name="Content" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.ContentDialog">
-      <RootProperty Name="Title" />
-      <RootProperty Name="PrimaryButtonText" />
-      <RootProperty Name="SecondaryButtonText" />
       <RootProperty Name="BorderBrush" />
       <RootProperty Name="BorderThickness" />
       <RootProperty Name="Foreground" />
@@ -283,8 +263,9 @@
       <RootProperty Name="Background" />
       <RootProperty Name="Resources" />
       <RootProperty Name="Content" />
-      <RootProperty Name="PrimaryButtonStyle" />
-      <RootProperty Name="SecondaryButtonStyle" />
+      <RootProperty Name="Title" />
+      <RootProperty Name="PrimaryButtonText" />
+      <RootProperty Name="SecondaryButtonText" />
       <RootProperty Name="Width" />
       <RootProperty Name="Height" />
       <RootEvent Name="PrimaryButtonClick" />
@@ -299,44 +280,35 @@
       <RootProperty Name="Color" />
       <RootProperty Name="Offset" />
     </RootType>
-    <RootType FullName="Windows.UI.Xaml.Controls.ComboBox">
-      <RootProperty Name="Width" />
-      <RootProperty Name="Margin" />
-      <RootProperty Name="Style" />
-      <RootProperty Name="ItemTemplate" />
-      <RootEvent Name="SelectionChanged" />
+    <RootType FullName="Windows.UI.Xaml.Media.SolidColorBrush">
+      <RootProperty Name="Color" />
     </RootType>
-    <RootType FullName="Windows.UI.Xaml.Controls.Primitives.Popup">
-      <RootProperty Name="IsLightDismissEnabled" />
+    <RootType FullName="Windows.UI.Xaml.Controls.Viewbox">
       <RootProperty Name="Child" />
-    </RootType>
-    <RootType FullName="Windows.UI.Xaml.Controls.ItemsPresenter" />
-    <RootType FullName="Windows.UI.Xaml.Controls.FontIcon">
-      <RootProperty Name="Glyph" />
-      <RootProperty Name="FontFamily" />
-      <RootProperty Name="Foreground" />
       <RootProperty Name="VerticalAlignment" />
       <RootProperty Name="HorizontalAlignment" />
       <RootProperty Name="Margin" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.StackPanel">
-      <RootProperty Name="Margin" />
       <RootProperty Name="Children" />
-      <RootProperty Name="Orientation" />
-      <RootProperty Name="VerticalAlignment" />
       <RootProperty Name="HorizontalAlignment" />
+      <RootProperty Name="VerticalAlignment" />
+      <RootProperty Name="Margin" />
+      <RootProperty Name="Orientation" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.FlipView">
+      <RootProperty Name="HorizontalAlignment" />
+      <RootProperty Name="Height" />
+      <RootProperty Name="Width" />
+      <RootProperty Name="CornerRadius" />
+      <RootProperty Name="Margin" />
+      <RootProperty Name="Background" />
+      <RootProperty Name="BorderBrush" />
+      <RootProperty Name="BorderThickness" />
+      <RootProperty Name="Items" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.Image">
-      <RootProperty Name="Width" />
-      <RootProperty Name="Height" />
-      <RootProperty Name="Stretch" />
       <RootProperty Name="Source" />
-    </RootType>
-    <RootType FullName="Windows.UI.Xaml.DataTemplate">
-      <RootProperty Name="Template" />
-    </RootType>
-    <RootType FullName="Windows.UI.Xaml.Media.SolidColorBrush">
-      <RootProperty Name="Color" />
     </RootType>
     <RootType FullName="CP4.AddTeamDialog" />
     <RootType FullName="CP4.Dialogs.EditPlayerDialog" />
@@ -348,12 +320,6 @@
     <RootType FullName="Microsoft.UI.Xaml.Controls.AnimatedVisualPlayer">
       <RootProperty Name="Margin" />
       <RootProperty Name="Source" />
-    </RootType>
-    <RootType FullName="Windows.UI.Xaml.Controls.Viewbox">
-      <RootProperty Name="VerticalAlignment" />
-      <RootProperty Name="HorizontalAlignment" />
-      <RootProperty Name="Child" />
-      <RootProperty Name="Margin" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Media.CompositeTransform">
       <RootProperty Name="TranslateX" />
@@ -376,6 +342,9 @@
       <RootProperty Name="ItemTemplate" />
       <RootProperty Name="ItemContainerStyle" />
       <RootProperty Name="SelectionMode" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.DataTemplate">
+      <RootProperty Name="Template" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.ListViewItem" />
     <RootType FullName="CP4.Pages.EditTeamPage" />

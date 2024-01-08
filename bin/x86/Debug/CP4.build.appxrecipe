@@ -136,8 +136,8 @@
     <AppxPackagedFile Include="C:\Users\Parker\source\repos\CP4\Assets\TeamLogos\SouthLogoV2.png">
       <PackagePath>Assets\TeamLogos\SouthLogoV2.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Parker\source\repos\CP4\Assets\TeamLogos\St. Paul Central.png">
-      <PackagePath>Assets\TeamLogos\St. Paul Central.png</PackagePath>
+    <AppxPackagedFile Include="C:\Users\Parker\source\repos\CP4\Assets\TeamLogos\SPCLogo.png">
+      <PackagePath>Assets\TeamLogos\SPCLogo.png</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Parker\source\repos\CP4\Assets\TeamLogos\WhiteBearLakeLogoV2.png">
       <PackagePath>Assets\TeamLogos\WhiteBearLakeLogoV2.png</PackagePath>

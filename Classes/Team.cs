@@ -14,10 +14,10 @@ namespace CP4.Classes
         public string Name { get; set; }
 
         [JsonProperty]
-        public string PrimaryColor { get; set; }
+        public Windows.UI.Color PrimaryColor { get; set; } // Add this property to store the primary color
 
         [JsonProperty]
-        public string SecondaryColor { get; set; }
+        public Windows.UI.Color SecondaryColor { get; set; } // Add this property to store the secondary color
 
         [JsonProperty]
         public string LogoImagePath { get; set; }

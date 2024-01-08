@@ -19,7 +19,7 @@
             <GradientStop Color="#253E97" Offset="1" />
         </LinearGradientBrush>
     </ContentDialog.Background>
-
+    <Viewbox>
     <StackPanel Margin="5">
         <Viewbox>
             <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,0">
@@ -82,4 +82,5 @@
             </StackPanel>
         </Viewbox>
     </StackPanel>
+    </Viewbox>
 </ContentDialog>

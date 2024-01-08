@@ -19,7 +19,7 @@
             <GradientStop Color="#253E97" Offset="1" />
         </LinearGradientBrush>
     </ContentDialog.Background>
-
+    <Viewbox>
     <StackPanel Margin="5">
         <Viewbox>
             <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,0">
@@ -62,7 +62,7 @@
                     </StackPanel>
                     <StackPanel>
                         <ToggleButton x:ConnectionId='10' Content="A-Line" x:Name="ALineToggleButton" Width="100" Height="50" Margin="0,0,20,20" Style="{StaticResource ToggleButtonStyle}"                                                                  />
-                        <ToggleButton x:ConnectionId='11' Content="S-Line" x:Name="SLineToggleButton" Width="100" Height="50" Margin="0,0,20,20" Style="{StaticResource ToggleButtonStyle}" />
+                        <ToggleButton x:ConnectionId='11' Content="S-Line" x:Name="SLineToggleButton" Width="100" Height="50" Margin="0,0,20,20" Style="{StaticResource ToggleButtonStyle}"                                                                   />
                     </StackPanel>
                     <StackPanel>
                         <ToggleButton x:ConnectionId='8' Content="Handler" x:Name="HandlerToggleButton" Width="100" Height="50" Margin="0,0,20,20" Style="{StaticResource ToggleButtonStyle}"                                                                   />
@@ -82,5 +82,6 @@
             </StackPanel>
         </Viewbox>
     </StackPanel>
+    </Viewbox>
 </ContentDialog>
 

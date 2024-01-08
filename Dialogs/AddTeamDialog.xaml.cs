@@ -13,6 +13,12 @@ using CP4.Classes;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Windows.Storage;
+using Windows.UI.Xaml.Shapes;
+using Windows.UI;
+using System.Linq;
+using Windows.UI.Xaml.Controls.Primitives;
+using System.Globalization;
+using Microsoft.Toolkit.Uwp.UI;
 
 
 namespace CP4
@@ -20,95 +26,160 @@ namespace CP4
     public sealed partial class AddTeamDialog : ContentDialog
     {
         private List<Team> teams; // Define the teams list at the class level
+        private string selectedLogoImagePath = ""; // Declare a variable to store the selected logo path
+
+        // Declare SolidColorBrush fields
+        private SolidColorBrush PrimaryColorBrush;
+        private SolidColorBrush SecondaryColorBrush;
 
         public AddTeamDialog()
         {
             InitializeComponent();
-
-
-
-            // Populate the PrimaryColorComboBox and SecondaryColorComboBox with colors
-            PopulateColorComboBoxes();
-
             teams = new List<Team>();
+            LogoFlipView.SelectionChanged += LogoFlipView_SelectionChanged;
 
-            // Assuming you have a list of teams and their logo file names
-            List<TeamInfo> teamsInfos = new List<TeamInfo>
-                        {
-                             new TeamInfo { TeamName = "Washburn Millers", LogoImagePath = "ms-appx:///Assets/TeamLogos/MillerLogoV2.png" },
-                             new TeamInfo { TeamName = "South Squall", LogoImagePath = "ms-appx:///Assets/TeamLogos/SouthLogoV2.png" },
-                             new TeamInfo { TeamName = "Edina Lanterns", LogoImagePath = "ms-appx:///Assets/TeamLogos/EdinaLogoV2.png" },
-                             new TeamInfo { TeamName = "Hopkins Hurt", LogoImagePath = "ms-appx:///Assets/TeamLogos/HopkinsLogoV2.png" },
-                             new TeamInfo { TeamName = "St. Louis Park Crush", LogoImagePath = "ms-appx:///Assets/TeamLogos/CrushLogoV2.png" },
-                             new TeamInfo { TeamName = "Eagan Wildcats", LogoImagePath = "ms-appx:///Assets/TeamLogos/EaganLogoV2.png" },
-                             new TeamInfo { TeamName = "White Bear Lake Bears", LogoImagePath = "ms-appx:///Assets/TeamLogos/WhiteBearLakeLogoV2.png" },
-                             new TeamInfo { TeamName = "Mounds View Mustangs", LogoImagePath = "ms-appx:///Assets/TeamLogos/MoundsViewLogoV2.png" },
-                             new TeamInfo { TeamName = "Open World Learning Manatees", LogoImagePath = "ms-appx:///Assets/TeamLogos/OpenWorldLearningLogoV2.png" },
-                             new TeamInfo { TeamName = "Great River Stars", LogoImagePath = "ms-appx:///Assets/TeamLogos/GreatRiverStateLogoV2.png" },
-                             new TeamInfo { TeamName = "Blake Bears", LogoImagePath = "ms-appx:///Assets/TeamLogos/BlakeLogoV2.png" },
-                             new TeamInfo { TeamName = "Benilde-St. Margaret's Knights", LogoImagePath = "ms-appx:///Assets/TeamLogos/Benilde-St.MargaretLogoV2.png" },
-                             new TeamInfo { TeamName = "Apple Valley Eagles", LogoImagePath = "ms-appx:///Assets/TeamLogos/AppleValleyLogoV2.png" },
-                             new TeamInfo { TeamName = "Cathedral Phoenixes", LogoImagePath = "ms-appx:///Assets/TeamLogos/Cathedral Logo V2.png" },
-                             new TeamInfo { TeamName = "St. Paul Central Revolution", LogoImagePath = "ms-appx:///Assets/TeamLogos/St. Paul Central.png" },
-                             new TeamInfo { TeamName = "Cretin-Derham Hall Raiders", LogoImagePath = "ms-appx:///Assets/TeamLogos/CretinDerhamHallLogoV2.png" },
-                             new TeamInfo { TeamName = "Other Team", LogoImagePath = "ms-appx:///Assets/TeamLogos/Other Team Logo.png" },
-
-
-                            };
-
-            TeamLogoComboBox.ItemsSource = teamsInfos;
-
+            // Access the brushes using FindResource
+            PrimaryColorBrush = MyContentDialog.FindResource("PrimaryColorBrush") as SolidColorBrush;
+            SecondaryColorBrush = MyContentDialog.FindResource("SecondaryColorBrush") as SolidColorBrush;
 
         }
 
 
 
-
-
-        private void TeamLogoComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private Dictionary<Color, string> colorNames = new Dictionary<Color, string>
         {
-            if (TeamLogoComboBox.SelectedItem is TeamInfo selectedTeam)
-            {
-                // Update the selected team logo image
-                SelectedLogoImage.Source = new BitmapImage(new Uri(selectedTeam.LogoImagePath));
-                UpdateSelectedLogoVisibility();
-            }
-            else
-            {
-                // Clear the selected team logo if no item is selected
-                SelectedLogoImage.Source = null;
-                UpdateSelectedLogoVisibility();
-            }
-        }
+    
+             { Colors.White, "White" },
+             { Colors.Black, "Black" },
+             { Colors.Gray, "Gray" },
+             { Windows.UI.Color.FromArgb(0xFF, 0x39, 0x59, 0x9F), "Manatee Blue" },
+             { Windows.UI.Color.FromArgb(0xFF, 0x16, 0x35, 0x3F), "Great River Blue" },
+             { Windows.UI.Color.FromArgb(0xFF, 0x1B, 0xA9, 0x4A), "Eagan Green" },
+             { Windows.UI.Color.FromArgb(0xFF, 0x16, 0x68, 0x37), "Mounds View Green" },
+             { Windows.UI.Color.FromArgb(0xFF, 0x15, 0x64, 0x33), "Blake Green" },
+             { Windows.UI.Color.FromArgb(0xFF, 0x0E, 0x7C, 0x0C), "Edina Green" },
+             { Windows.UI.Color.FromArgb(0xFF, 0xF3, 0x73, 0x21), "Orange" },
+             { Windows.UI.Color.FromArgb(0xFF, 0xFF, 0xC2, 0x13), "Apple Valley Gold" },
+             { Windows.UI.Color.FromArgb(0xFF, 0xCE, 0x32, 0x1E), "Red" },
+             { Windows.UI.Color.FromArgb(255, 242, 108, 35), "Washburn Orange" },
+             { Windows.UI.Color.FromArgb(0xFF, 0x1C, 0x44, 0x8B), "Hopkins Blue" },
+             { Windows.UI.Color.FromArgb(0xFF, 0x1F, 0x49, 0x9A), "Eagan Blue" },
+             { Windows.UI.Color.FromArgb(0xFF, 0x20, 0x4F, 0x5E), "Great River Blue" },
+             { Windows.UI.Color.FromArgb(0xFF, 0xF0, 0x5A, 0x28), "South Orange" },
+             { Windows.UI.Color.FromArgb(0xFF, 0x92, 0x27, 0x8F), "Cretin Purple" },
 
 
-        private void PrimaryColorComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+
+        };
+
+
+
+        private void ToggleButton_Click(object sender, RoutedEventArgs e)
         {
-            if (PrimaryColorComboBox.SelectedItem is ColorItem selectedColor)
+            var clickedToggleButton = sender as ToggleButton;
+            var backgroundColor = (clickedToggleButton.Background as SolidColorBrush)?.Color;
+
+            if (backgroundColor != null && colorNames.ContainsKey(backgroundColor.Value))
             {
+                string selectedColorName = colorNames[backgroundColor.Value];
+                SelectedPrimaryColorTextBlock.Text = "Primary Color: " + selectedColorName;
 
+                // Set the primary color SolidColorBrush
+                PrimaryColorBrush.Color = backgroundColor.Value;
+            }
 
-                UpdateSelectedLogoVisibility();
+            // Uncheck all other ToggleButtons in the group
+            foreach (var toggleButton in PrimaryColorGroup.Children.OfType<ToggleButton>())
+            {
+                if (toggleButton != clickedToggleButton)
+                {
+                    toggleButton.IsChecked = false;
+                }
+            }
 
-                // Update the border stroke color with the selected primary color
-                SelectedLogoBorder.BorderBrush = new SolidColorBrush(selectedColor.Color);
+            // Track the number of checked ToggleButtons
+            int checkedCount = 0;
+
+            if (backgroundColor != null && colorNames.ContainsKey(backgroundColor.Value))
+            {
+                string selectedColorName = colorNames[backgroundColor.Value];
+                SelectedPrimaryColorTextBlock.Text = "Primary Color: " + selectedColorName;
+            }
+
+            // Check the count of checked ToggleButtons
+            foreach (var toggleButton in PrimaryColorGroup.Children.OfType<ToggleButton>())
+            {
+                if (toggleButton.IsChecked == true)
+                {
+                    checkedCount++;
+                }
+            }
+
+            // If no ToggleButtons are checked, display "None"
+            if (checkedCount == 0)
+            {
+                SelectedPrimaryColorTextBlock.Text = "Primary Color: None";
             }
         }
 
-        private void SecondaryColorComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+
+
+        private void SecondaryColorToggleButton_Click(object sender, RoutedEventArgs e)
         {
-            if (SecondaryColorComboBox.SelectedItem is ColorItem selectedColor)
+            var clickedToggleButton = sender as ToggleButton;
+            var backgroundColor = (clickedToggleButton.Background as SolidColorBrush)?.Color;
+
+            if (backgroundColor != null && colorNames.ContainsKey(backgroundColor.Value))
             {
-  
+                string selectedColorName = colorNames[backgroundColor.Value];
+                SelectedSecondaryColorTextBlock.Text = "Secondary Color: " + selectedColorName;
 
-                UpdateSelectedLogoVisibility();
+                // Set the secondary color SolidColorBrush
+                SecondaryColorBrush.Color = backgroundColor.Value;
+            }
 
-                // Update the border background color with the selected secondary color
-                SelectedLogoBorder.Background = new SolidColorBrush(selectedColor.Color);
+            // Uncheck all other ToggleButtons in the group
+            foreach (var toggleButton in SecondaryColorGroup.Children.OfType<ToggleButton>())
+            {
+                if (toggleButton != clickedToggleButton)
+                {
+                    toggleButton.IsChecked = false;
+                }
+            }
 
+            // Track the number of checked ToggleButtons
+            int checkedCount = 0;
 
+            if (backgroundColor != null && colorNames.ContainsKey(backgroundColor.Value))
+            {
+                string selectedColorName = colorNames[backgroundColor.Value];
+                SelectedSecondaryColorTextBlock.Text = "Secondary Color: " + selectedColorName;
+            }
+
+            // Check the count of checked ToggleButtons
+            foreach (var toggleButton in SecondaryColorGroup.Children.OfType<ToggleButton>())
+            {
+                if (toggleButton.IsChecked == true)
+                {
+                    checkedCount++;
+                }
+            }
+
+            // If no ToggleButtons are checked, display "None"
+            if (checkedCount == 0)
+            {
+                SelectedSecondaryColorTextBlock.Text = "Secondary Color: None";
             }
         }
+
+        private void LogoFlipView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (LogoFlipView.SelectedItem is Image selectedImage)
+            {
+                selectedLogoImagePath = selectedImage.Source.ToString();
+            }
+        }
+
 
         private async Task SaveTeamsAsync(List<Team> teams)
         {
@@ -126,62 +197,23 @@ namespace CP4
             }
         }
 
-        private void UpdateSelectedLogoVisibility()
+        private async void SaveTeamButton_Click(object sender, RoutedEventArgs e)
         {
-            if (TeamLogoComboBox.SelectedItem is TeamInfo selectedTeam &&
-                PrimaryColorComboBox.SelectedItem is ColorItem primaryColor &&
-                SecondaryColorComboBox.SelectedItem is ColorItem secondaryColor)
-            {
-                // All three selections have been made, so show the SelectedLogoBorder
-                SelectedLogoBorder.Visibility = Visibility.Visible;
+            // Get the background color of the selected primary color ToggleButton
+            var primaryColorButton = PrimaryColorGroup.Children.OfType<ToggleButton>().FirstOrDefault(tb => tb.IsChecked == true);
+            Windows.UI.Color primaryColor = (primaryColorButton?.Background as SolidColorBrush)?.Color ?? Windows.UI.Colors.Transparent;
 
-                // Update the selected team logo image
-                SelectedLogoImage.Source = new BitmapImage(new Uri(selectedTeam.LogoImagePath));
+            // Get the background color of the selected secondary color ToggleButton
+            var secondaryColorButton = SecondaryColorGroup.Children.OfType<ToggleButton>().FirstOrDefault(tb => tb.IsChecked == true);
+            Windows.UI.Color secondaryColor = (secondaryColorButton?.Background as SolidColorBrush)?.Color ?? Windows.UI.Colors.Transparent;
 
-                // Update the border stroke color with the selected primary color
-                SelectedLogoBorder.BorderBrush = new SolidColorBrush(primaryColor.Color);
-
-                // Create a radial gradient brush
-                RadialGradientBrush radialGradient = new RadialGradientBrush();
-
-                // Define gradient stops - from secondary color to black
-                radialGradient.GradientStops.Add(new GradientStop { Color = secondaryColor.Color, Offset = 0 });
-                radialGradient.GradientStops.Add(new GradientStop { Color = Windows.UI.Colors.Black, Offset = 5.8 });
-
-                // Set the radial gradient as the background of SelectedLogoBorder
-                SelectedLogoBorder.Background = radialGradient;
-            }
-            else
-            {
-                // Hide the SelectedLogoBorder if any of the selections is missing
-                SelectedLogoBorder.Visibility = Visibility.Collapsed;
-                SelectedLogoImage.Source = null; // Clear the selected logo image
-            }
-        }
-
-
-
-        private void ContentDialog_PrimaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args) //THIS IS THE CANCEL BUTTON
-        {
-
-            // Hide the dialog
-            this.Hide();
-
-
-        }
-
-        private async void ContentDialog_SecondaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)  // THIS IS THE SAVE BUTTON
-        {
-
-
-            // Create a new team
             Team newTeam = new Team
             {
                 Id = Guid.NewGuid(),
                 Name = TeamNameTextBox.Text,
-                PrimaryColor = ((ColorItem)PrimaryColorComboBox.SelectedItem).Name,
-                SecondaryColor = ((ColorItem)SecondaryColorComboBox.SelectedItem).Name,
-                LogoImagePath = ((TeamInfo)TeamLogoComboBox.SelectedItem).LogoImagePath
+                PrimaryColor = primaryColor, // Set the primary color
+                SecondaryColor = secondaryColor, // Set the secondary color
+                LogoImagePath = selectedLogoImagePath // Set the selected logo image path
             };
 
             // Save the new team using the TeamManager
@@ -192,68 +224,16 @@ namespace CP4
             // Save the updated list of teams
             await SaveTeamsAsync(teams);
 
-
             this.Hide();
         }
 
-        // Create a class to represent color items
-        public class ColorItem
+        private void CancelButton_Click(object sender, RoutedEventArgs e)
         {
-            public string Name { get; set; }
-            public Windows.UI.Color Color { get; set; }
+
+
+
+            this.Hide();
         }
-
-        // Helper method to populate the ComboBoxes with colors
-        private void PopulateColorComboBoxes()
-        {
-            // Define your color items here
-            var primaryColors = new List<ColorItem>
-            {
-                new ColorItem { Name = "White", Color = Windows.UI.Colors.White },
-                new ColorItem { Name = "Black", Color = Windows.UI.Colors.Black },
-                new ColorItem { Name = "Washburn Blue", Color = Windows.UI.Color.FromArgb(0xFF, 0x26, 0x57, 0xA7) },
-                new ColorItem { Name = "Manatee Blue", Color = Windows.UI.Color.FromArgb(0xFF, 0x39, 0x59, 0x9F) },
-                new ColorItem { Name = "Great River Blue", Color = Windows.UI.Color.FromArgb(0xFF, 0x16, 0x35, 0x3F) },
-                new ColorItem { Name = "Eagan Green", Color = Windows.UI.Color.FromArgb(0xFF, 0x1B, 0xA9, 0x4A) },
-                new ColorItem { Name = "Mounds View Green", Color = Windows.UI.Color.FromArgb(0xFF, 0x16, 0x68, 0x37) },
-                new ColorItem { Name = "Blake Green", Color = Windows.UI.Color.FromArgb(0xFF, 0x15, 0x64, 0x33) },
-                new ColorItem { Name = "Edina Green", Color = Windows.UI.Color.FromArgb(0xFF, 0x0E, 0x7C, 0x0C) },
-                new ColorItem { Name = "Crush Orange", Color = Windows.UI.Color.FromArgb(0xFF, 0xF3, 0x73, 0x21) },
-                new ColorItem { Name = "Apple Valley Gold", Color = Windows.UI.Color.FromArgb(0xFF, 0xFF, 0xC2, 0x13) },
-                new ColorItem { Name = "White Bear Lake Orange", Color = Windows.UI.Color.FromArgb(0xFF, 0xF5, 0x7B, 0x20) },
-                new ColorItem { Name = "Benilde St Margaret Red", Color = Windows.UI.Color.FromArgb(0xFF, 0xCE, 0x32, 0x1E) },
-                // Add more primary colors as needed
-            };
-
-            var secondaryColors = new List<ColorItem>
-            {
-                new ColorItem { Name = "White", Color = Windows.UI.Colors.White },
-                new ColorItem { Name = "Black", Color = Windows.UI.Colors.Black },
-                new ColorItem { Name = "Washburn Blue", Color = Windows.UI.Color.FromArgb(0xFF, 0x25, 0x3E, 0x97) },
-                new ColorItem { Name = "Hopkins Blue", Color = Windows.UI.Color.FromArgb(0xFF, 0x1C, 0x44, 0x8B) },
-                new ColorItem { Name = "Eagan Blue", Color = Windows.UI.Color.FromArgb(0xFF, 0x1F, 0x49, 0x9A) },
-                new ColorItem { Name = "Great River Blue", Color = Windows.UI.Color.FromArgb(0xFF, 0x20, 0x4F, 0x5E) },
-                new ColorItem { Name = "South Orange", Color = Windows.UI.Color.FromArgb(0xFF, 0xF0, 0x5A, 0x28) },
-                new ColorItem { Name = "Cretin Purple", Color = Windows.UI.Color.FromArgb(0xFF, 0x92, 0x27, 0x8F) },
-                // Add more secondary colors as needed
-            };
-
-            // Set the ComboBox item sources
-            PrimaryColorComboBox.ItemsSource = primaryColors;
-            SecondaryColorComboBox.ItemsSource = secondaryColors;
-
-        }
-
-
-        public class TeamInfo
-        {
-            public string TeamName { get; set; }
-            public string LogoImagePath { get; set; }
-        }
-
-
-
-
 
     }
 
